@@ -1,0 +1,111 @@
+﻿.footerlinks {
+    color: darkgrey;
+    text-decoration: none !important;
+}
+
+    .footerlinks:hover {
+        color: #ffd800;
+    }
+
+#footer1 {
+    background: linear-gradient(207deg, #ffffff, #f7f7f7, #dbffff);
+    background-size: 600% 600%;
+    -webkit-animation: DynamicGradient 0s ease infinite;
+    -moz-animation: DynamicGradient 0s ease infinite;
+    animation: DynamicGradient 0s ease infinite;
+}
+
+
+
+#footer2 {
+    background: linear-gradient(207deg, #ffffff, #f7f7f7, #dbffff);
+    background-size: 600% 600%;
+    -webkit-animation: DynamicGradient 0s ease infinite;
+    -moz-animation: DynamicGradient 0s ease infinite;
+    animation: DynamicGradient 0s ease infinite;
+}
+
+.button {
+    width:auto;
+    height:auto;
+    transition: transform .2s;
+}
+
+.button:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+}
+
+
+
+h1 {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 275px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}
+
+.jumbotron {
+    background: linear-gradient(207deg, #ffffff, #f7f7f7, #dbffff);
+    background-size: 600% 600%;
+    -webkit-animation: DynamicGradient 0s ease infinite;
+    -moz-animation: DynamicGradient 0s ease infinite;
+    animation: DynamicGradient 0s ease infinite;
+}
+
+@-webkit-keyframes DynamicGradient {
+    0% {
+        background-position: 0% 4%
+    }
+
+    50% {
+        background-position: 100% 97%
+    }
+
+    100% {
+        background-position: 0% 4%
+    }
+}
+
+@-moz-keyframes DynamicGradient {
+    0% {
+        background-position: 0% 4%
+    }
+
+    50% {
+        background-position: 100% 97%
+    }
+
+    100% {
+        background-position: 0% 4%
+    }
+}
+
+@keyframes DynamicGradient {
+    0% {
+        background-position: 0% 4%
+    }
+
+    50% {
+        background-position: 100% 97%
+    }
+
+    100% {
+        background-position: 0% 4%
+    }
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}

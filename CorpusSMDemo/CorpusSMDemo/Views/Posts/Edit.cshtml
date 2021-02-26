@@ -1,0 +1,56 @@
+﻿@model CorpusSMDemo.ViewModels.Posts.EditVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <form action="/Posts/Edit" method="post">
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.UserId)
+            <div class="card">
+                <div class="card-header">
+                    Post
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @Html.TextBoxFor(p => p.Title, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.Title, null, new { @class = "error" })
+                    </h5>
+                    <p class="card-text">
+                        @Html.TextAreaFor(p => p.Content,  new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.Content, null, new { @class = "error" })
+                    </p>
+                    <input class="btn btn-primary " type="submit" name="Edit" value="Edit Post" />
+                </div>
+            </div>
+        </form>
+        <br />
+        <a href="/Posts/Index">
+            <img width="45" src="~/images/back.png" />
+        </a>
+        <br /><br />
+    </div>
+    <div class="col-3"></div>
+</div>
+<script>
+    window.
+        onload
+        = function () {
+            Particles.
+                init
+                ({
+                    selector:
+                        '.background'
+                });
+        };
+    var particles = Particles.init({
+        selector: '.background',
+        color: ['#DA0463', '#404B69', '#DBEDF3'],
+        connectParticles: true
+    });
+</script>
+<canvas class="background"></canvas>

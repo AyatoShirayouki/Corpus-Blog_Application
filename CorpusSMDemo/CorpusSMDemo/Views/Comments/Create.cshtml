@@ -1,0 +1,62 @@
+﻿@model CorpusSMDemo.ViewModels.Comments.CreateVM
+@using CorpusSMDemo.Entities
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<section class="jumbotron text-center" style="opacity: 0.9">
+    <div class="container">
+        <h1 class="jumbotron-heading" style=" color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;">Comment</h1>
+    </div>
+</section>
+<br />
+<br />
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <form action="/Comments/Create" method="post">
+            @Html.HiddenFor(m => m.PostId)
+            <div class="row">
+                @Html.TextAreaFor(u => u.Content, new { @class = "form-control" })
+                @Html.ValidationMessageFor(u => u.Content, null, new { @class = "error" })
+            </div>
+            <br />
+            <div class="row">
+                <input class="btn btn-primary" type="submit" name="Create" value="Create" />
+            </div>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <a href="/Comments/Index?ParentId=@Model.PostId">
+            <img width="45" src="~/images/back.png" />
+        </a>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<script>
+    window.
+        onload
+        = function () {
+            Particles.
+                init
+                ({
+                    selector:
+                        '.background'
+                });
+        };
+    var particles = Particles.init({
+        selector: '.background',
+        color: ['#DA0463', '#404B69', '#DBEDF3'],
+        connectParticles: true
+    });
+</script>
+<canvas class="background"></canvas>
+

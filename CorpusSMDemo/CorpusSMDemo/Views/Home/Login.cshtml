@@ -1,0 +1,90 @@
+﻿@model CorpusSMDemo.ViewModels.Home.LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<div class="container">
+    <form action="/Home/Login" method="post">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <a href="https://icons8.com/icon/SHo9iDefm73R/test-account"></a>
+                                    <!--<img src="~\Images\user_profile.png" />-->
+                                    <img src="https://img.icons8.com/ios-glyphs/90/000000/user-male-circle.png" width="100" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <h3>Login</h3>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <hr />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Username:</label>
+                                <div class="form-group">
+                                    <!--<asp:TextBox class="form-control" ID="TextBox1" placeholder="Username" runat="server"></asp:TextBox>-->
+                                    @Html.TextBoxFor(m => m.Username, null, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Username, null, new { @class = "error" })
+                                </div>
+                                <label>Password:</label>
+                                <div class="form-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "error" })
+                                </div>
+                                @Html.ValidationMessage("AuthenticationFailed", null, new { @class = "error" })
+                                <div class="form-group">
+                                    <input class="btn btn-primary btn-block btn-lg" type="submit" name="Login" value="Login" />
+                                </div>
+                                <div class="form-group">
+                                    <a href="/Home/SignUp">
+                                        <input class="btn btn-primary btn-block btn-lg" id="Button2" type="button" value="Sign Up" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <a class="button" href="/Home/Index">
+                    <img width="45" src="~/images/home.png" />
+                </a>
+                <br /><br />
+            </div>
+        </div>
+    </form>
+    <script>
+        window.
+            onload
+            = function () {
+                Particles.
+                    init
+                    ({
+                        selector:
+                            '.background'
+                    });
+            };
+        var particles = Particles.init({
+            selector: '.background',
+            color: ['#DA0463', '#404B69', '#DBEDF3'],
+            connectParticles: true
+        });
+    </script>
+    
+</div>
+<canvas class="background"></canvas>
+

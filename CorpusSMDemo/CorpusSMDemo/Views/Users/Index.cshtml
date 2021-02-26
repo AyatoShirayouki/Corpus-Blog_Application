@@ -1,0 +1,145 @@
+﻿@model CorpusSMDemo.ViewModels.Users.IndexVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    
+    
+        <div class="container">
+            <form action="/Users/Edit" method="get">
+                @Html.HiddenFor(m => m.Id)
+                <div class="row">
+                    <a href="https://icons8.com/icon/SHo9iDefm73R/test-account"></a>
+                    <div class="col-9 mx-auto">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <img src="https://img.icons8.com/ios-glyphs/90/000000/user-male-circle.png" width="100" />
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <h3>Profile</h3>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <hr />
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <center>
+                                            <span class="badge bg-info text-dark">Personal Information</span>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name:</label>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(u => u.FirstName, null, new { @class = "form-control", @ReadOnly = "true" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Last Name:</label>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(u => u.LastName, null, new { @class = "form-control", @ReadOnly = "true" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Username:</label>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(u => u.Username, null, new { @class = "form-control", @ReadOnly = "true" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Email:</label>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(u => u.Email, null, new { @class = "form-control", @ReadOnly = "true" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <label>Password:</label>
+                                        <div class="form-group">
+                                            <!--@Html.PasswordFor(m => m.Password, new { @class = "form-control", @ReadOnly = "true" })-->
+                                            <input type="text" class="form-control" value="*********" readonly="readonly" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 mx-auto">
+                                        <center>
+                                            <div class="form-group">
+                                                <input class="btn btn-primary btn-block btn-lg" type="submit" name="EditProfile" value="Edit Profile" />
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-md-8">
+                                        <a class="btn btn-primary btn-block btn-lg" href="/Posts/Index">
+                                            Posts
+                                        </a>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <a href="/Home/Index">
+                            <img width="45" src="~/images/home.png" />
+                        </a>
+                        <br /><br />
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+        <script>
+        window.
+            onload
+            = function () {
+                Particles.
+                    init
+                    ({
+                        selector:
+                            '.background'
+                    });
+            };
+        var particles = Particles.init({
+            selector: '.background',
+            color: ['#DA0463', '#404B69', '#DBEDF3'],
+            connectParticles: true
+        });
+        </script>
+        <canvas class="background"></canvas>
+        
+        
+    
+
+
+
+
+
+

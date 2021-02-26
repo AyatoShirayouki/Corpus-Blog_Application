@@ -1,0 +1,100 @@
+﻿@model CorpusSMDemo.ViewModels.Posts.IndexVM
+@using CorpusSMDemo.Entities
+@using System.Linq
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<section class="jumbotron text-center" style="opacity: 0.9">
+    <div class="container">
+        <h1 class="jumbotron-heading" style=" color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;">Posts</h1>
+    </div>
+</section>
+<br />
+<br />
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-2">
+        <a href="/Posts/Create">
+            <img width="45" src="~/images/pen.png" />
+        </a>
+    </div>
+    <div class="col-2">
+        <center>
+            <a href="/Posts/SharedWithMe">
+                <img width="65" src="~/images/collaboration.png" />
+            </a>
+        </center>
+    </div>
+    <div class="col-2">
+        <a style="float:right"  href="/Users/Index">
+            <img width="45" src="~/images/back.png" />
+        </a>
+    </div>
+    <div class="col-3"></div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-6">
+
+        @foreach (Post item in Model.Items)
+        {
+            <div class="card">
+                <div class="card-header">
+                    @Model.User.FirstName @Model.User.LastName (@Model.User.Username)
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @item.Title
+                    </h5>
+                    <p class="card-text">
+                        @item.Content
+                    </p>
+                    <a style="margin-right:15px" href="/Comments/Index?ParentId=@item.Id">
+                        <img width="30" src="~/images/blogging.png" />
+                    </a>
+                    <a href="/Posts/Share?id=@item.Id">
+                        <img width="30" src="~/images/share.png" />
+                    </a>
+                    <a style="float:right; margin-left:15px" href="/Posts/Delete?id=@item.Id">
+                        <img width="30" src="~/images/trash.png" />
+                    </a>
+                    <a style="float:right" href="/Posts/Edit?id=@item.Id">
+                        <img width="30" src="~/images/edit.png" />
+                    </a>
+                </div>
+            </div>
+            <br /><br /><br />
+        }
+    </div>
+
+    <div class="col-3">
+
+    </div>
+</div>
+<script>
+    window.
+        onload
+        = function () {
+            Particles.
+                init
+                ({
+                    selector:
+                        '.background'
+                });
+        };
+    var particles = Particles.init({
+        selector: '.background',
+        color: ['#DA0463', '#404B69', '#DBEDF3'],
+        connectParticles: true
+    });
+</script>
+<canvas class="background"></canvas>
+

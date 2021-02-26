@@ -1,0 +1,82 @@
+﻿@model CorpusSMDemo.ViewModels.Admin.AdminLoginVM
+@{
+    ViewData["Title"] = "AdminLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<div class="container">
+    <form action="/Home/AdminLogin" method="post">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img src="~/images/Admin.png" width="100" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <h3>Admin Login</h3>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <hr />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label>Username:</label>
+                                <div class="form-group">
+                                    <!--<asp:TextBox class="form-control" ID="TextBox1" placeholder="Username" runat="server"></asp:TextBox>-->
+                                    @Html.TextBoxFor(m => m.Username, null, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Username, null, new { @class = "error" })
+                                </div>
+                                <label>Password:</label>
+                                <div class="form-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "error" })
+                                </div>
+                                @Html.ValidationMessage("AuthenticationFailed", null, new { @class = "error" })
+                                <div class="form-group">
+                                    <input class="btn btn-primary btn-block btn-lg" type="submit" name="Login" value="Login" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <a href="/Home/Index">
+                    <img width="45" src="~/images/home.png" />
+                </a>
+                <br /><br />
+            </div>
+        </div>
+    </form>
+    <script>
+        window.
+            onload
+            = function () {
+                Particles.
+                    init
+                    ({
+                        selector:
+                            '.background'
+                    });
+            };
+        var particles = Particles.init({
+            selector: '.background',
+            color: ['#DA0463', '#404B69', '#DBEDF3'],
+            connectParticles: true
+        });
+    </script>
+</div>
+<canvas class="background"></canvas>
+

@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/css/customstylesheet.css" rel="stylesheet" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    
+    
+</head>
+
+<body>
+
+    <div id="form1">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/Home/Index">
+                    <img width="60" height="60" class="img" src="~/images/C_logo.png" />
+                    orpusSM
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapsed navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Home/Index">Home</a>
+                        </li>
+                        @if (this.Context.Session.GetString("loggedAdmin") == null)
+                        {
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Home/AdminLogin">Admin</a>
+                            </li>
+                        }
+                        else
+                        {
+                            if (this.Context.Session.GetString("loggedUser") == null)
+                            {
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/Admin/Index">Users Managment</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/Admin/Logout">Logout</a>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (this.Context.Session.GetString("loggedUser") == null)
+                        {
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Home/Login">Login</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Home/SignUp">Sign Up</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Users/Index">
+                                    Hello @(this.Context.Session.GetString("LoggedUserId") == null
+                                    ? this.Context.Session.GetString("LoggedUserUsername") : "Annonymous")
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Posts/Index">Posts</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/Home/Logout">Logout</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

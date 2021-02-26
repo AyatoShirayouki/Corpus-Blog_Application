@@ -1,0 +1,94 @@
+﻿@model CorpusSMDemo.ViewModels.Admin.AdminIndexVM
+@using CorpusSMDemo.Entities
+@{
+    ViewData["Title"] = "Users Managment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="//datatables.net/download/build/nightly/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="//datatables.net/download/build/nightly/jquery.dataTables.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+<section class="jumbotron text-center" style="opacity: 0.9">
+    <div class="container">
+        <h1 class="jumbotron-heading" style=" color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;">Users Managment</h1>
+    </div>
+</section>
+<br />
+<br />
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table id="myTable" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (User item in Model.Items)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Username</td>
+                        <td>@item.Password</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <a style="margin-right:10px;" href="/Admin/Edit?id=@item.Id">
+                                <img width="30" src="~/images/edit.png" />
+                            </a>
+                            <a href="/Admin/Delete?id=@item.Id">
+                                <img width="30" src="~/images/trash.png" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-2"></div>
+</div>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <a class="button" href="/Home/Index">
+            <img width="45" src="~/images/home.png" />
+        </a>
+    </div>
+    <div class="col-2"></div>
+</div>
+<script>
+    window.
+        onload
+        = function () {
+            Particles.
+                init
+                ({
+                    selector:
+                        '.background'
+                });
+        };
+    var particles = Particles.init({
+        selector: '.background',
+        color: '#3366ff'
+    });
+</script>
+<canvas class="background"></canvas>
+
+
+
+

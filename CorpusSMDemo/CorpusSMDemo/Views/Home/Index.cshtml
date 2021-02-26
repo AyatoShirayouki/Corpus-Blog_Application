@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<section class="jumbotron text-center" style="opacity: 0.9">
+    <div class="container">
+        <h1 class="jumbotron-heading" style=" color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;">Corpus Blog</h1>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center>
+                    <h2><b>We Offer</b></h2>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <center>
+                    <img width="150px" src="~/images/social-media.png" />
+                    <h4>Posting</h4>
+                    <p class="text-center">
+                        Easy <b>Posting</b><br />
+                        Easy <b>Editing</b><br />
+                        Easy <b>Sharing</b>
+                    </p>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <img width="150px" src="~/images/share.png" />
+                    <h4>Sharing</h4>
+                    <p class="text-center">
+                        <b>Create</b> and <b>Share</b><br />
+                        your Posts with<br />
+                        other people.
+                    </p>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <img width="150" src="~/images/rules.png" />
+                    <h4>Comunity Guidelines</h4>
+                    <p class="text-center">
+                        We have strict rules<br />
+                        you have to follol <br />
+                        Signing up.
+                    </p>
+                </center>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.
+            onload
+            = function () {
+                Particles.
+                    init
+                    ({
+                        selector:
+                            '.background'
+                    });
+            };
+        var particles = Particles.init({
+            selector: '.background',
+            color: ['#DA0463', '#404B69', '#DBEDF3'],
+            connectParticles: true
+        });
+    </script>
+</section>
+<canvas class="background"></canvas>
+

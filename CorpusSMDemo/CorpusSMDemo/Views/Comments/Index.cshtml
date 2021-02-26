@@ -1,0 +1,94 @@
+﻿@model CorpusSMDemo.ViewModels.Comments.IndexVM
+@using CorpusSMDemo.Entities
+@{
+    ViewData["Title"] = "Comments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br />
+        <a href="/Posts/Index">
+            <img width="45" src="~/images/back.png" />
+        </a>
+        <br /><br />
+        <form action="/Posts/Create" method="post">
+            <div class="card">
+                <div class="card-header">
+                    Post
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @Model.Post.Title
+                    </h5>
+                    <p class="card-text">
+                        @Model.Post.Content
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <a href="/Comments/Create?parentId=@Model.Post.Id">
+            <img width="70" src="~/images/write.png" />
+        </a>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6"><hr /></div>
+    <div class="col-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h3>Comments:</h3>
+        @foreach (Comment item in Model.Items)
+        {
+            <img style="padding-top:5px;margin-left:15px;" width="20" src="~/images/up-arrow.png" />
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        @item.Content
+                    </p>
+                    <br />
+                </div>
+            </div>
+            <a style="float:right; margin-top:5px;" href="/Comments/Delete?id=@item.Id">
+                <img width="30" src="~/images/trash.png" />
+            </a>
+            <br />
+        }
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<script>
+    window.
+        onload
+        = function () {
+            Particles.
+                init
+                ({
+                    selector:
+                        '.background'
+                });
+        };
+    var particles = Particles.init({
+        selector: '.background',
+        color: ['#DA0463', '#404B69', '#DBEDF3'],
+        connectParticles: true
+    });
+</script>
+<canvas class="background"></canvas>
+
